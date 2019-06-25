@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "138531632349",
+    "firebase_url": "https://bitswap-da159.firebaseio.com",
+    "project_id": "bitswap-da159",
+    "storage_bucket": "bitswap-da159.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138531632349:android:2ce032365c69427c",
+        "android_client_info": {
+          "package_name": "com.bitswap.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138531632349-u3nic5soh5t9cb0rjn72ck6gtd9c1dis.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bitswap.app",
+            "certificate_hash": "34c614af10a89808477483a88e2d77de90164751"
+          }
+        },
+        {
+          "client_id": "138531632349-jtn5e5caqfjn40rrvgv8g9sg101l9k7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmHAYK6f4kBU94SGR4Nshdr8t0nbyaQEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138531632349-jtn5e5caqfjn40rrvgv8g9sg101l9k7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,6 +10,9 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.bitswap.app.chat.ChatFragment;
+import com.bitswap.app.main.MainFragment;
+import com.bitswap.app.profile.ProfileFragment;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -32,6 +35,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Looper;
 import android.provider.Settings;
@@ -60,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
     private LocationCallback mLocationCallback;
     private Location mCurrentLocation;
 
+    private ViewPager mViewPager;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         updateLocationFromBundle(savedInstanceState);
         FloatingActionButton fab = findViewById(R.id.fab);
+        mViewPager = findViewById(R.id.main_viewpager);
+        setUpViewPager(mViewPager);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +92,15 @@ public class MainActivity extends AppCompatActivity {
         createLocationCallback();
         createLocationRequest();
         buildLocationSettingsRequest();
+    }
+
+    private void setUpViewPager(ViewPager viewpager) {
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter.addFragment(new ProfileFragment());
+        mSectionsPagerAdapter.addFragment(new MainFragment());
+        mSectionsPagerAdapter.addFragment(new ChatFragment());
+        viewpager.setAdapter(mSectionsPagerAdapter);
+        viewpager.setCurrentItem(1);
     }
 
     private void updateLocationFromBundle(Bundle savedInstanceState) {
